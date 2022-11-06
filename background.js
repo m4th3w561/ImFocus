@@ -1,3 +1,27 @@
+console.log('hello world, I am at background.js');
+
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    if (request.blockSite){
+      blackListedSites.push(request.blockSite)
+    }
+    if (request.unBlockSite){
+      console.log(blackListedSites)
+      blackListedSites = blackListedSites.filter((item)=> item !== request.unBlockSite )
+      console.log(blackListedSites)
+    }
+
+    if (request.checkBlackList) {
+      const result = blackListedSites.includes(request.checkBlackList)
+      sendResponse({isBlackListed: result})
+    }
+  }
+)
+
+let blackListedSites = []
+
+
+
 // Extension event listeners are a little different from the patterns you may have seen in DOM or
 // Node.js APIs. The below event listener registration can be broken in to 4 distinct parts:
 //

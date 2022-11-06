@@ -1,4 +1,94 @@
+:root {
+    --dark-green: #0E8F45;
+    --light-green: #0BDB64;
+    --accent-orange: #DB5200;
+    --dark-blue: #0E4C8F;
+    --light-blue: #0B6FDB;
+}
+
+html {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 57px;
+}
+
+h2 {
+    font-size: 45px;
+}
+
+h3 {
+    font-size: 36px
+}
+
+h4 {
+    font-size: 32px;
+}
+
+h5 {
+    font-size: 28px;
+}
+
+h6 {
+    font-size: 24px;
+}
+
+p {
+    font-size: 16px;
+}
+
+button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    text-align: center;
+    color: white;
+    background-color: var(--accent-orange);
+    border-radius: 100px;
+    border: none;
+}
+
+.hero h4,
+.hero h6 {
+    margin: 0.5rem 0;
+}
+
+.hero p {
+    font-size: 18px;
+}
+
 .main {
     width: 400px;
-    height: 400px;
+    padding: 1rem;
+    border-radius: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.blocked {
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100vw;
+    height: 100vh;
+    z-index: 10000;
+    position: fixed;
+    top: 0;
+    left: 0;
 }

@@ -6,5 +6,15 @@
 		"default_title": "HelloWorld",
 		"default_icon": "icon.png",
 		"default_popup": "hello.html"
+	},
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"css": ["main.css"],
+			"js": ["content.js"]
+		}
+	],
+	"background": {
+		"service_worker": "background.js"
 	}
 }
