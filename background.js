@@ -1,24 +1,26 @@
 console.log('hello world, I am at background.js');
 
 chrome.runtime.onMessage.addListener(
-  function(request, sender, sendResponse) {
-    if (request.blockSite){
-      blackListedSites.push(request.blockSite)
+  function (request, sender, sendResponse) {
+    // add url to blacklist
+    if (request.blockSite) {
+      blackListedSites.push(request.blockSite);
     }
-    if (request.unBlockSite){
-      console.log(blackListedSites)
-      blackListedSites = blackListedSites.filter((item)=> item !== request.unBlockSite )
-      console.log(blackListedSites)
+    // remove url from blacklist
+    if (request.unBlockSite) {
+      console.log(blackListedSites);
+      blackListedSites = blackListedSites.filter((item) => item !== request.unBlockSite);
+      console.log(blackListedSites);
     }
-
+    // check if url is in blacklist
     if (request.checkBlackList) {
-      const result = blackListedSites.includes(request.checkBlackList)
-      sendResponse({isBlackListed: result})
+      const result = blackListedSites.includes(request.checkBlackList);
+      sendResponse({ isBlackListed: result });
     }
   }
-)
+);
 
-let blackListedSites = []
+let blackListedSites = [];
 
 
 

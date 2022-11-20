@@ -43,10 +43,12 @@ const checkBlackList = (url) => {
     chrome.runtime.sendMessage({checkBlackList: url}, function(response) { 
         if (!response.isBlackListed) {
             unHide()
+            return
         }
-        if (response.isBlackListed){
-            addHider()
-        }
+        // if (response.isBlackListed){
+        //     addHider()
+        // }
+        addHider()
     });
 }
 
